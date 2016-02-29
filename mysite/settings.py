@@ -1,5 +1,10 @@
 import os
-gettext = lambda s: s
+# Avoid assigning a `lambda` expression to a variable
+# Use a def for named expressions. Refactor the lambda expression into a named def expression.
+def gettext(s):
+     return s
+# standard format is the one below:
+# gettext = lambda s: s
 DATA_DIR = os.path.dirname(os.path.dirname(__file__))
 """
 Django settings for mysite project.
@@ -14,7 +19,7 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 """
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-import os
+# import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -23,7 +28,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'oc#k90@pqa*6z8wz%pn43i@idq5b_#3bg@xkngk9lv++-q*=7-'
+# Simplicity is prerequisite for reliability.
+SECRET_KEY = os.environ['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -32,6 +38,7 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
+# Beauty is more important in computing than anywhere else in technology because software is so complicated. Beauty is the ultimate defence against complexity.
 
 
 
@@ -219,3 +226,4 @@ THUMBNAIL_PROCESSORS = (
     'easy_thumbnails.processors.filters'
 )
 
+# The computing scientist’s main challenge is not to get confused by the complexities of his own making.

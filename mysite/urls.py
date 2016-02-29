@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+# Avoid using wildcard (*) imports but I just left it for everyone to see standard format django-cms comes at!
 from __future__ import absolute_import, print_function, unicode_literals
 
 from cms.sitemaps import CMSSitemap
