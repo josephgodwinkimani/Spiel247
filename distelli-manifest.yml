@@ -98,7 +98,7 @@
 
   Exec:
     - echo "Begin Execution"
-    - python manager.py runserver 0.0.0.0:8080
+    - python simpleapp.py -p $PORT
     ##########################################################
     # The Exec: Section executes the application
     # 
