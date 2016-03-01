@@ -98,7 +98,8 @@ jgodwin/Spiel247:
 
   Exec:
     - echo "Begin Execution"
-    - python simpleapp.py -p $PORT
+    - python manage.py -p $PORT
+    - python manager.py runserver 0.0.0.0:8080
     ##########################################################
     # The Exec: Section executes the application
     # 
