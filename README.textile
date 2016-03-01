@@ -1,5 +1,5 @@
 h1(#spiel). Spiel
 
-"!https://www.quantifiedcode.com/api/v1/project/3e3794e2f52242b18ded73d47ba8ec8a/badge.svg(Code Issues)!":https://www.quantifiedcode.com/app/project/3e3794e2f52242b18ded73d47ba8ec8a
+"!https://www.quantifiedcode.com/api/v1/project/e82927b024cd4ecea8c00bf880be4ccd/badge.svg(Code Issues)!":https://www.quantifiedcode.com/app/project/e82927b024cd4ecea8c00bf880be4ccd
 
 Blog about PC games news, reviews, previews and opinions!

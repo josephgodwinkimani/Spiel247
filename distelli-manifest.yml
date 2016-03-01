@@ -1,4 +1,4 @@
-jgodwin/Spiel247:
+<jgodwin13>/<Spiel247>:
   ############################################################
   # The Distelli Manifest Reference
   #    distelli-manifest.yml
@@ -99,6 +99,7 @@ jgodwin/Spiel247:
   Exec:
     - echo "Begin Execution"
     - python manage.py -p $PORT
+    - python manage.py runserver 0.0.0.0:8080
     ##########################################################
     # The Exec: Section executes the application
     # 
