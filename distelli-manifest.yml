@@ -1,0 +1,115 @@
+<jgodwin13>/<Spiel247>:
+  ############################################################
+  # The Distelli Manifest Reference
+  #    distelli-manifest.yml
+  #
+  # Read more about Distelli Manifests at:
+  #  http://www.distelli.com/docs/distelli-manifest-reference
+  #
+  # The first line must be your:
+  # distelli username (not email)
+  # application name
+  #
+  # as shown above:
+  # USERNAME/APPLICATIONNAME:
+  #
+  ############################################################
+
+  Env:
+    - REPO_TYPE: GIT   <BMM - Filled in by Distelli
+    - PORT: 8000
+    ##########################################################
+    # The Env: Section is where you define 
+    #  your environment variables
+    # One variable REPO_TYPE has been defined above
+    #
+    # Read more about Distelli Environment Variables at:
+    #  https://www.distelli.com/docs/distelli-variables-reference
+    # 
+    # You may need to define others. for example:
+    #- JAVA_HOME: /path/to/java/home/jre
+    #- CATALING_HOME: /path/to/tomcat
+    #- PORT: 8005
+    #
+    ##########################################################
+
+  PkgInclude:
+    - '*'
+    ##########################################################
+    # The PkgInclude: Section is where you define
+    #  the files and directories in your application
+    #  that should be bundled for pushs and deploys
+    #
+    # The '*' will pick up all files and directories
+    #
+    # Example:
+    #- simpleapp/simpleapp.py
+    #- requirements.txt
+    #
+    ##########################################################
+
+  PreInstall:
+    - echo "Begin PreInstall"
+    - sudo apt-get -y update
+    - sudo apt-get -y install python
+    - sudo apt-get -y install python-pip
+    - sudo apt-get -y install python-virtualenv
+    ##########################################################
+    # The PreInstall: Section occurs before Install
+    # 
+    # This section is great for download or installing
+    #  prerequisites.
+    #
+    #
+    # Example Ubuntu install Prerequisites
+    #- sudo apt-get -y update
+    #- sudo apt-get -y install python
+    #- sudo apt-get -y install python-pip
+    #- sudo apt-get -y install python-virtualenv
+    #
+    # Example CentOS install Prerequisites
+    #- sudo rpm -iUvh http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-5.noarch.rpm
+    #- sudo yum -y update
+    #- sudo yum -y install python
+    #- sudo yum -y install python-pip
+    #- sudo yum -y install python-virtualenv
+    #
+    ##########################################################
+
+  PostInstall:
+    - echo "Begin PostInstall"
+    - virtualenv .
+    - sudo pip install -r requirements.txt
+    ##########################################################
+    # The PostInstall: Section occurs after Install
+    #
+    # During the Install Distelli downloads and decompresses
+    #  the application. Which includes files indicated by
+    #  the PkgInclude: section.
+    # Now that the files are available you can interact
+    #  with them.
+    #
+    #
+    # Example python virtualenv and pip installation
+    #- virtualenv .
+    #- sudo pip install -r requirements.txt
+    #
+    ##########################################################
+
+  Exec:
+    - echo "Begin Execution"
+    - python manage.py -p $PORT
+    ##########################################################
+    # The Exec: Section executes the application
+    # 
+    # The Distelli Agent watches this process and ensures 
+    #  that if it stops, it is restarted.
+    #
+    # Start a python application
+    #- python simpleapp.py -p $PORT
+    #
+    # You may want to use the distelli-manifest.yml 
+    #  Start: section instead of Exec: if you are starting a
+    #  daemon or service.
+    #
+    ##########################################################
